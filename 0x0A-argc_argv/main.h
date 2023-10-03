@@ -3,5 +3,6 @@
 
 int _putchar(char c);
 int _atoi(char *s);
+int mul(int a, int b);
 
 #endif
