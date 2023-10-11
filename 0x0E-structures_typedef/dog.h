@@ -19,12 +19,12 @@ struct dog
 	char *owner;
 };
 
-typedef struct dog dot_t;
+typedef struct dog dog_t;
 
 int _putchar(char c);
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
-dot_t *new_dog(char *name, float age, char *owner);
-void free_dog(dot_t *d);
+dog_t *new_dog(char *name, float age, char *owner);
+void free_dog(dog_t *d);
 
 #endif
