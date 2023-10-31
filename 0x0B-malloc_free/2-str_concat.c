@@ -11,27 +11,31 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	size_t s1_length, s2_length, new_length;
+	size_t s1_length, s2_length, new_length, i;
 	char *new_string;
 
 	if (s1 == NULL)
 	{
 		s1 = "";
 	}
-	else if (s2 == NULL)
+	if (s2 == NULL)
 	{
 		s2 = "";
 	}
 	new_length = 0;
-	new_string = malloc(new_length * sizeof(char));
 	s1_length = _strlen(s1);
 	s2_length = _strlen(s2);
 	new_length = s1_length + s2_length + 1;
-	new_string[new_length - 1] = '\0';
+	new_string = (char *)malloc(new_length * sizeof(char));
 	if (new_string == NULL)
 	{
 		return (NULL);
 	}
+	for (i = 0; i < s1_length; i++)
+		new_string[i] = s1[i];
+	for (i = 0; i < s2_length; i++)
+		new_string[s1_length + i] = s2[i];
+	new_string[new_length - 1] = '\0';
 	return (new_string);
 }
 /**
