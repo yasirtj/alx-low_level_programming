@@ -36,6 +36,9 @@ char *_strcpy(char *dest, char *src)
 {
 	int length = 0;
 
+	if (dest == NULL || src == NULL)
+		return (NULL);
+
 	do {
 		dest[length] = src[length];
 		length++;
