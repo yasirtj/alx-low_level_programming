@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -7,7 +5,6 @@
  * @str: string
  * Return: pointer to the newly allocated space in memory
  **/
-
 char *_strdup(char *str)
 {
 	char *alloc_string;
