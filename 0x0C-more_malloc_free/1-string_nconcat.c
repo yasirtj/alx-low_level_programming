@@ -6,7 +6,7 @@
  * @s2: second string
  * @n: first byte of string 2
  * Return: pointer to the new string
- **/
+**/
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
@@ -21,6 +21,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
+	if (n == 0)
+		return (NULL);
 	first_string_length = _strlen(s1);
 	second_string_length = _strlen(s2);
 	new_length = first_string_length + second_string_length + 1;
@@ -49,7 +51,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
  * Description: copies the string pointed to by `src`
  * including the terminating null byte (\0), to the buffer pointed to by `dest`
  * Return: pointer to `dest`
- */
+ **/
 char *_strcpy(char *dest, char *src)
 {
 	int length = -1;
@@ -66,7 +68,8 @@ char *_strcpy(char *dest, char *src)
  * _strlen - checks the length of the string
  * @s: string to be checked
  * Return: The length of the string
- **/
+**/
+
 unsigned int _strlen(char *s)
 {
 
@@ -78,13 +81,14 @@ unsigned int _strlen(char *s)
 	}
 	return (str_length);
 }
+
 /**
  * _strncpy - copies a string
  * @dest: resulting string
  * @src: source string
  * @n: string length to be copied
  * Return: pointer to the copied string
- **/
+**/
 
 char *_strncpy(char *dest, char *src, int n)
 {
