@@ -20,6 +20,21 @@ int _isdigit(char *c)
 }
 
 /**
+ * _strlen - checks the length of the string
+ * @s: -string to be checked
+ * Return: The length of the string
+ */
+
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+/**
  * errors - handles errors
  * Return: exit 98
  **/
