@@ -12,6 +12,7 @@ int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_strcpy(char *dest, char *src);
 unsigned int _strlen(char *s);
+void copy_memory(void *dest, const void *src, size_t n);
 char *_strncpy(char *dest, char *src, int n);
 
 #endif
