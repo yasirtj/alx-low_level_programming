@@ -6,7 +6,7 @@
  * @s2: second string
  * @n: first byte of string 2
  * Return: pointer to the new string
-**/
+ **/
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
@@ -23,14 +23,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	if (n == 0)
 		return (NULL);
-	first_string_length = _strlen(s1);
-	second_string_length = _strlen(s2);
-	new_length = first_string_length + second_string_length + 1;
-
 	if (n >= _strlen(s2))
 	{
-		new_length += _strlen(s2) - n;
+		n = _strlen(s2);
 	}
+
+	first_string_length = _strlen(s1);
+	second_string_length = n;
+	new_length = first_string_length + second_string_length + 1;
 
 	new_string = malloc(n * sizeof(char) * (new_length + 1));
 
@@ -39,8 +39,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	}
 	_strcpy(new_string, s1);
-	_strncpy(new_string + _strlen(s1), s2, n);
-	new_string[new_length] = '\0';
+	_strncpy(new_string + first_string_length, s2, n);
+	new_string[new_length - 1] = '\0';
 	return (new_string);
 }
 
@@ -68,7 +68,7 @@ char *_strcpy(char *dest, char *src)
  * _strlen - checks the length of the string
  * @s: string to be checked
  * Return: The length of the string
-**/
+ **/
 
 unsigned int _strlen(char *s)
 {
@@ -88,7 +88,7 @@ unsigned int _strlen(char *s)
  * @src: source string
  * @n: string length to be copied
  * Return: pointer to the copied string
-**/
+ **/
 
 char *_strncpy(char *dest, char *src, int n)
 {
