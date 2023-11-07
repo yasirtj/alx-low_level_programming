@@ -8,7 +8,7 @@
  * @age: dog age
  * @owner: dog owner name
  * Return: new object dog
-**/
+ **/
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d = malloc(sizeof(dog_t));
@@ -28,8 +28,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(d);
 		return (NULL);
 	}
-	d->name = name;
-	d->owner = owner;
+	_strcpy(d->name, name);
+	_strcpy(d->owner, owner);
 	d->age = age;
 
 	return (d);
@@ -51,4 +51,24 @@ int _strlen(char *s)
 		str_length++;
 	}
 	return (str_length);
+}
+
+/**
+ * *_strcpy - copies the string pointerd to by src
+ * @dest: char type string
+ * @src: char type string
+ * Description: copies the string pointed to by `src`
+ * including the terminating null byte (\0), to the buffer pointed to by `dest`
+ * Return: pointer to `dest`
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int length = -1;
+
+	do {
+		length++;
+		dest[length] = src[length];
+
+	} while (src[length] != '\0');
+	return (dest);
 }
