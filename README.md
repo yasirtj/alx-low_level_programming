@@ -10,6 +10,9 @@
 * Debugging
 * Pointers and dynamic memory allocation
 * Arrays and Strings
+* Preprocessor & Structures
 
-**Author
-* Yasir Mohammednour Hamed. Ahmed**
+**Author**
+
+* Yasir Mohammednour Hamed. Ahmed
+
