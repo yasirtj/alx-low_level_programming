@@ -3,7 +3,7 @@
  * print_char - print character format specifier
  * @args: list of arguments
  * Return: nothing
-**/
+ **/
 
 void print_char(va_list args)
 {
@@ -14,7 +14,7 @@ void print_char(va_list args)
  * print_int - print int format specifier
  * @args: list of arguments
  * Return: nothing
-**/
+ **/
 
 void print_int(va_list args)
 {
@@ -25,7 +25,7 @@ void print_int(va_list args)
  * print_float - print float format specifier
  * @args: list of arguments
  * Return: nothing
-**/
+ **/
 
 void print_float(va_list args)
 {
@@ -36,10 +36,11 @@ void print_float(va_list args)
  * print_string - print string format specifier
  * @args: list of arguments
  * Return: nothing
-**/
+ **/
 void print_string(va_list args)
 {
 	char *s = va_arg(args, char*);
+
 	if (s == NULL)
 		printf("nil");
 	else
@@ -49,12 +50,13 @@ void print_string(va_list args)
  * print_all - prints all passed arguments
  * @format: list of types of arguments passed to the function
  * Return: nothing
-**/
+ **/
 void print_all(const char * const format, ...)
 {
 	int i;
 	va_list args;
-	Format formats[] = 
+	Format formats[] =
+
 	{
 		{'c', print_char},
 		{'i', print_int},
@@ -77,9 +79,9 @@ void print_all(const char * const format, ...)
 					printf(", ");
 				break;
 			}
-			fmt++;	
+			fmt++;
 		}
 	}
 	va_end(args);
 	printf("\n");
-}	
+}
