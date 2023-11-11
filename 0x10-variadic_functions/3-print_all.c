@@ -1,74 +1,85 @@
 #include "variadic_functions.h"
+/**
+ * print_char - print character format specifier
+ * @args: list of arguments
+ * Return: nothing
+**/
 
+void print_char(va_list args)
+{
+	printf("%c", va_arg(args, int));
+}
+
+/**
+ * print_int - print int format specifier
+ * @args: list of arguments
+ * Return: nothing
+**/
+
+void print_int(va_list args)
+{
+	printf("%d", va_arg(args, int));
+}
+
+/**
+ * print_float - print float format specifier
+ * @args: list of arguments
+ * Return: nothing
+**/
+
+void print_float(va_list args)
+{
+	printf("%f", va_arg(args, double));
+}
+
+/**
+ * print_string - print string format specifier
+ * @args: list of arguments
+ * Return: nothing
+**/
+void print_string(va_list args)
+{
+	char *s = va_arg(args, char*);
+	if (s == NULL)
+		printf("nil");
+	else
+		printf("%s", s);
+}
 /**
  * print_all - prints all passed arguments
  * @format: list of types of arguments passed to the function
  * Return: nothing
 **/
-void print_all(const char * const format, ...);
-
 void print_all(const char * const format, ...)
 {
-	int i, print_separator;
-	char c;
-	float f;
-	char *s;
-	const char *fmt;
+	int i;
 	va_list args;
-
-	if (format == NULL)
+	Format formats[] = 
 	{
-		printf("\n");
-		return;
-	}
-
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string},
+		{'\0', NULL}
+	};
 
 	va_start(args, format);
-
-	print_separator = 0;
-	fmt = format;
-	while (*fmt)
+	for (i = 0; formats[i].type != '\0'; i++)
 	{
-		switch (*fmt)
-		{
-			case 'c':
-				c = va_arg(args, int);
-				if (print_separator)
-					printf(", ");
-				printf("%c", c);
-				print_separator = 1;
-				break;
+		const char *fmt = format;
 
-			case 'i':
-				i = va_arg(args, int);
-				if (print_separator)
+		while (*fmt)
+		{
+			if (*fmt == formats[i].type)
+			{
+				formats[i].print_func(args);
+				if (*(fmt + 1))
 					printf(", ");
-				printf("%d", i);
-				print_separator = 1;
 				break;
-			case 'f':
-				f = va_arg(args, double);
-				if (print_separator)
-					printf(", ");
-				printf("%f", f);
-				print_separator = 1;
-				break;
-			case 's':
-				s = va_arg(args, char *);
-				if (print_separator)
-					printf(", ");
-				if (s == NULL)
-					printf("nil");
-				else
-					printf("%s", s);
-				print_separator = 1;
-				break;
-			default:
-				break;
+			}
+			fmt++;	
 		}
-		fmt++;
 	}
 	va_end(args);
 	printf("\n");
-}
-
+}	
