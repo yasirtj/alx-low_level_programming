@@ -9,15 +9,17 @@
 size_t list_len(const list_t *h)
 {
 	int count = 0;
+
 	if (h == NULL)
 	{
 		printf("list is empty");
 	}
 	const list_t *ptr = h;
+
 	while (ptr != NULL)
 	{
 		count++;
-		ptr =ptr->next;
+		ptr = ptr->next;
 	}
 	return (count);
 }
