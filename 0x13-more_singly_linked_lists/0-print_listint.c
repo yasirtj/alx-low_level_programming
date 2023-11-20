@@ -5,7 +5,7 @@
  * @h: the head pointer which points to the first node of the list
  * Return: number of nodes
  **/
-size_t print_listint( const listint_t *h)
+size_t print_listint(const listint_t *h)
 {
 	int count = 0;
 	const listint_t *ptr = h;
