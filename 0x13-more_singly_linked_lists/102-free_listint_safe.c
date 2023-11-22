@@ -8,21 +8,38 @@
 size_t free_listint_safe(listint_t **h)
 {
 	size_t size = 0;
-	listint_t *current, __attribute__((__unused__))*temp;
+	listint_t *slow, *fast, *temp;
 
-	while (*h != NULL)
+	slow = *h;
+	fast = *h;
+
+	while (slow != NULL && fast != NULL && fast->next != NULL)
 	{
 		size++;
-		if (*h <= (*h)->next)
+		slow = slow->next;
+		fast = fast->next->next;
+
+		if (slow == fast)
 		{
-			temp = (*h)->next;
-			free(*h);
+			slow = *h;
+			while (slow != fast)
+			{
+				temp = slow;
+				slow = slow->next;
+				free(temp);
+				size++;
+			}
+			free(slow);
 			*h = NULL;
 			break;
 		}
-		current = (*h)->next;
-		free(*h);
-		*h = current;
+	}
+	while (*h != NULL)
+	{
+		temp = *h;
+		*h = (*h)->next;
+		free(temp);
+		size++;
 	}
 	return (size);
 }
