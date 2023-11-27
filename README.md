@@ -1,16 +1,24 @@
-LX Low level programming Repository
-
-C programming language Basics
-Variables
-Datatypes
-Conditional statements if .. else
-Nested if statements
-Fucntions
-Iterations and loops
-Debugging
-Pointers and dynamic memory allocation
-Arrays and Strings
-Preprocessor & Structures
-Author
-
-Yasir Mohammednour Hamed. Ahmed
+<html>
+	<head>
+		<h2>ALX low level programming - C basics </h2>
+	</head>
+	<body>
+		<p>Variables & datatypes</p>
+		</br>
+		<ul>
+			<li>Conditional statements if .. else</li>
+			<li>Nested if statements</li>
+			<li>Functions</li>
+			<li>Loops and Iterations</li>
+			<li>Debugging</li>
+			<li>Pointers and dynamic memory allocation</li>
+			<li>Array and Strings</li>
+			<li>Preprocessors and Structures</li>
+		</ul>
+		</br>
+		<h2>Auther</h2>
+		<ol>
+			<h3>Yasir Mohammednour Hamid. Ahmed</h3>
+		</ol>
+	</body>
+</html>
